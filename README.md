@@ -65,3 +65,25 @@ visible_hostname Water7
 <img src="img/soal1_testing1.PNG">
 
 Kemudian restart squid dengan perintah `service squid restart`.
+
+## Soal 2
+Konfigurasi Foosha sebagai DHCP Relay
+### Jawaban
+Lakukan instalasi berikut yang akan digunakan DHCP Relay
+```
+apt-get update
+apt-get install isc-dhcp-relay -y
+```
+Lakukan konfigurasi pada file `/etc/default/isc-dhcp-relay`. Pada bagian `SERVERS=`, masukkan IP milik DHCP Server (Jipangu) dan pada bagian `INTERFACES=` masukkan interface milik DHCP Client dan DHCP Server.
+```
+SERVERS="192.192.2.4"
+INTERFACES="eth1 eth3 eth2"
+```
+<img src="">
+
+Restart DHCP Relay dengan perintah `service isc-dhcp-relay restart`.<br>
+Lakukan konfigurasi pada file `/etc/sysctl.conf` untuk membuka IP Forwarding dengan menghapus komentar pada baris:
+```
+net.ipv4.ip_forward=1
+```
+<img src="">
