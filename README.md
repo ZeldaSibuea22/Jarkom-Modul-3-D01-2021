@@ -17,6 +17,20 @@ Untuk menyambungkan ke internet, jangan lupa:
 
 ### Konfigurasi Network
 
+#### Foosha
+<img src="">
+
+#### EniesLobby
+<img src="">
+
+#### Water7
+<img src="">
+
+#### Jipangu
+<img src="">
+
+#### LogueTown, Alabasta, Totoland, Skypie
+<img src="">
 
 ## Soal 1
 Konfigurasi EniesLobby sebagai DNS Server, Jipangu sebagai DHCP Server, Water7 sebagai Proxy Server
