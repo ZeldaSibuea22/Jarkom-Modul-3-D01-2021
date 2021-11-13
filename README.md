@@ -265,7 +265,7 @@ iface eth0 inet dhcp
 Restart masing-masing node, kemudian dilakukan pengecekan apakah sudah menggunakan IP yang dipinjamkan dan mendapatkan IP milik EnniesLobby.
 - LogueTown
 
-	<img src="https://user-images.githubusercontent.com/68428942/141644806-04a3291a-40f0-40bf-8b01-bab6d2398f7f.png" widt=600> 
+	<img src="https://user-images.githubusercontent.com/68428942/141644806-04a3291a-40f0-40bf-8b01-bab6d2398f7f.png" width=600> 
   
 - Alabasta
 
@@ -513,6 +513,7 @@ cp -r /root/super.franky/. /var/www/super.franky.d01.com
 Aktifkan webserver ddengan command `a2ensite super.franky.d01.com`.
 
 Setelah membuat domain super.franky.d01.com, pada Proxy Server (Water7) tambahkan daftar website yang akan diberi pembatasan akses dengan menulisnya di file `/etc/squid/restrict-sites.acl`. Pada soal ini, hanya google.com.
+
 <img src="https://user-images.githubusercontent.com/68428942/141643816-55ec34ad-4e1f-44f7-a141-6d5536d3c534.png" width=600>
 
 Tambahkan konfigurasi berikut untuk pembatasan website pada file `/etc/squid/squid.conf`.
