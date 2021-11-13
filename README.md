@@ -213,7 +213,21 @@ Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 
 
 
 ### Jawaban
+Dalam hal ini kami membuat memperbaharui konfigurasi `dhcpd.conf` dengan pada subnet `switch 1` mengubah
+```
+default-lease-time 360;
+max-lease-time 7200;
+```
+Dan pada `switch 3`
+```
+default-lease-time 720;
+max-lease-time 7200;
+```
+Berikut ini merupakan dokumentasi yang kami tuliskan pada script
+<img src="img/soal6_testing.PNG">
+<img src="img/soal6_testing1.PNG">
 
+Dan berikut ini merupakan hasil run nya
 
 
 ## Soal 7
