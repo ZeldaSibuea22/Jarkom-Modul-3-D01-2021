@@ -566,12 +566,15 @@ delay_access 1 deny zoro
 delay_access 1 allow gambar
 delay_access 1 deny all
 ```
+<img src="https://user-images.githubusercontent.com/68428942/141648289-ab10aaeb-a608-4c9e-8cdc-6dae2a224bf0.png" width=600>
+
 Pada `delay_parameters`, untuk mendapatkan kecepatan 10Kilobit = 10000Bit dikonversi menjadi dalam satuan byte dengan membaginya dengan 8. Sehingga diperoleh 1250BByte agar kecepatan yang diperoleh adalah kisaran 10 kilobit.
 
 Kemudian tambahkan script berikut pada file `/etc/squid/squid.conf`.
 ```
 include /etc/squid/acl-bandwidth.conf
 ```
+<img src="https://user-images.githubusercontent.com/68428942/141648314-64a1c045-a83b-4370-ac03-dfaf6a2f51c3.png" width=600>
 
 Restart squid dengan command `service squid restart`.
 
