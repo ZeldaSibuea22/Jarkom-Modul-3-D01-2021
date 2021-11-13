@@ -522,7 +522,7 @@ Tambahkan konfigurasi berikut untuk pembatasan website pada file `/etc/squid/squ
 acl BLACKLISTS dstdomain "/etc/squid/restrict-sites.acl"
 http_access deny BLACKLISTS
 #menampilkan deny_info sebagai super.franky.d01.com
-deny_info http://super.franky.d01.com BLACKLIST
+deny_info http://super.franky.d01.com BLACKLISTS
 ```
 <img src="https://user-images.githubusercontent.com/68428942/141643878-1d5c0d7e-99a8-44ba-b8d4-c01c4dad0c27.png" width=600>
 
@@ -533,4 +533,48 @@ echo 'nameserver 192.192.2.2' > /etc/resolv.conf
 
 Kemudian restart squid dengan command `service squid restart`.
 
-Pada LogueTown, aktifnya proxy kemudian cek dengan `lynx google.com`.
+Pada LogueTown, aktifkan proxy kemudian cek dengan `lynx google.com`. Server akan langsung me-redirect ke super.franky.d01.com dengan meminta unsername dan password terlebih dahulu.
+
+<img src="https://user-images.githubusercontent.com/68428942/141646933-f6ac247c-fa61-4065-89e9-296c279129f7.png" width=600>
+
+Karena diakses di luar waktu yang diperbolehkan, maka tampilan super.franky.d01.com adalah:
+
+<img src="https://user-images.githubusercontent.com/68428942/141647020-dc15f420-a50f-4e8e-ae8c-04e8b05082ac.png" width=600>
+
+## Soal 12
+Saatnya berlayar! Luffy dan Zoro akhirnya memutuskan untuk berlayar untuk mencari harta karun
+di super.franky.yyy.com. Tugas pencarian dibagi menjadi dua misi, Luffy bertugas untuk
+mendapatkan gambar (.png, .jpg), sedangkan Zoro mendapatkan2 sisanya. Karena Luffy
+orangnya sangat teliti untuk mencari harta karun, ketika ia berhasil mendapatkan gambar, ia
+mendapatkan gambar dan melihatnya dengan kecepatan 10 kbps
+
+### Jawaban
+Pada DHCP Server (Water7), buat file bernama `/etc/squid/acl-bandwidth.conf` dan masukkan konfigurasi berikut.
+```
+acl gambar url_regex -i \.jpg$ \.png$
+
+auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd
+
+acl luffy proxy_auth luffybelikapald01
+acl zoro proxy_auth zorobelikapald01
+
+delay_pools 2
+delay_class 1 1
+delay_parameters 1 1250/1250
+delay_access 1 allow luffy
+delay_access 1 deny zoro
+delay_access 1 allow gambar
+delay_access 1 deny all
+```
+Pada `delay_parameters`, untuk mendapatkan kecepatan 10Kilobit = 10000Bit dikonversi menjadi dalam satuan byte dengan membaginya dengan 8. Sehingga diperoleh 1250BByte agar kecepatan yang diperoleh adalah kisaran 10 kilobit.
+
+Kemudian tambahkan script berikut pada file `/etc/squid/squid.conf`.
+```
+include /etc/squid/acl-bandwidth.conf
+```
+
+Restart squid dengan command `service squid restart`.
+
+Pada LogueTown, dilakukan testing dengan download salah satu gambar dengan menggunakan username luffybelikapald01.
+
+<img src="https://user-images.githubusercontent.com/68428942/141647902-ce409924-ba69-4ef2-97a0-ba9b1b81d0a7.png" width=600>
