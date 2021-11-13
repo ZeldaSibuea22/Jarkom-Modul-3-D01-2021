@@ -18,19 +18,58 @@ Untuk menyambungkan ke internet, jangan lupa:
 ### Konfigurasi Network
 
 #### Foosha
-<img src="">
+```
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+	address 192.192.1.1
+	netmask 255.255.255.0
+
+auto eth2
+iface eth2 inet static
+	address 192.192.2.1
+	netmask 255.255.255.0
+
+auto eth3
+iface eth3 inet static
+	address 192.192.3.1
+	netmask 255.255.255.0
+```
 
 #### EniesLobby
-<img src="">
+```
+auto eth0
+iface eth0 inet static
+	address 192.192.2.2
+	netmask 255.255.255.0
+	gateway 192.192.2.1
+```
 
 #### Water7
-<img src="">
+```
+auto eth0
+iface eth0 inet static
+	address 192.192.2.3
+	netmask 255.255.255.0
+	gateway 192.192.2.1
+```
 
 #### Jipangu
-<img src="">
+```
+auto eth0
+iface eth0 inet static
+	address 192.192.2.4
+	netmask 255.255.255.0
+	gateway 192.192.2.1
+```
 
 #### LogueTown, Alabasta, Totoland, Skypie
-<img src="">
+```
+auto eth0
+iface eth0 inet dhcp
+```
 
 ## Soal 1
 Konfigurasi EniesLobby sebagai DNS Server, Jipangu sebagai DHCP Server, Water7 sebagai Proxy Server
