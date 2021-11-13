@@ -183,3 +183,30 @@ Sama seperti nomer 3, melakukan konfigurasi di file `/etc/dhcp/dhcpd.conf` pada 
 Lakukan seperti nomer 3 sebelumnya, restart DHCP Server dengan perintah `service isc-dhcp-server restart`.<br>
 Kemudian cek dengan perintah `service isc-dhcp-server status`.
 <img src="img/soal4_testing1.PNG">
+
+## Soal 5
+Client mendapatkan DNS dari EniesLobby dan client dapat terhubung dengan internet melalui DNS tersebut.
+
+### Jawaban
+
+
+
+## Soal 6
+Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 6 menit sedangkan pada client yang melalui Switch3 selama 12 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 120 menit.
+
+
+### Jawaban
+
+
+
+
+## Soal 7
+Luffy dan Zoro berencana menjadikan Skypie sebagai server untuk jual beli kapal yang 
+dimilikinya dengan alamat IP yang tetap dengan IP [prefix IP].3.69
+
+
+
+
+### Jawaban
+
+
