@@ -196,6 +196,22 @@ Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 
 
 
 ### Jawaban
+#### Ennies Lobby
+Edit file `/etc/bind/named.conf.options` untuk melakukan forwarding ke Foosha.
+```
+ forwarders {
+        "IP nameserver dari Foosha";
+    };
+
+    allow-query{any;};
+```
+
+Setelah selesai, maka lakukan resart pada `EnniesLoobby` dengan command
+```
+service bind9 restart
+```
+
+Berikut ini scriptnya
 
 
 
