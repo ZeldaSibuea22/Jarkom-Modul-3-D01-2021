@@ -164,3 +164,22 @@ Kemudian cek dengan perintah `service isc-dhcp-server status`.
 <img src="img/soal3_testing1.PNG">
 
 ## Soal 4
+Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.30 - [prefix IP].3.50
+### Jawaban
+#### Jipangu
+Sama seperti nomer 3, melakukan konfigurasi di file `/etc/dhcp/dhcpd.conf` pada DHCP Server (Jipangu). Membuat:
+```
+  subnet 192.192.3.0 netmask 255.255.255.0 {
+    range 192.192.3.30 192.192.3.50; # range IP yang diberikan
+    option routers 192.192.3.1; # IP Switch3
+    option broadcast-address 192.192.3.255;
+    option domain-name-servers 192.192.2.2; # IP EniesLobby (Klien mendapatkan DNS dari EniesLobby)
+    default-lease-time 720; # Lama waktu peminjaman 12 menit
+    max-lease-time 7200; # Waktu maksimal peminjaman 120 menit
+  }
+  ```
+<img src="img/soal4_testing.PNG">
+
+Lakukan seperti nomer 3 sebelumnya, restart DHCP Server dengan perintah `service isc-dhcp-server restart`.<br>
+Kemudian cek dengan perintah `service isc-dhcp-server status`.
+<img src="img/soal4_testing1.PNG">
