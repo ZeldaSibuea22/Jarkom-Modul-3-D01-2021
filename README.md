@@ -188,14 +188,6 @@ Kemudian cek dengan perintah `service isc-dhcp-server status`.
 Client mendapatkan DNS dari EniesLobby dan client dapat terhubung dengan internet melalui DNS tersebut.
 
 ### Jawaban
-
-
-
-## Soal 6
-Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 6 menit sedangkan pada client yang melalui Switch3 selama 12 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 120 menit.
-
-
-### Jawaban
 #### Ennies Lobby
 Edit file `/etc/bind/named.conf.options` untuk melakukan forwarding ke Foosha.
 ```
@@ -213,6 +205,14 @@ service bind9 restart
 
 Berikut ini scriptnya
 
+
+
+
+## Soal 6
+Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 6 menit sedangkan pada client yang melalui Switch3 selama 12 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 120 menit.
+
+
+### Jawaban
 
 
 
